@@ -1,0 +1,18 @@
+{
+  "name": "cress-type",
+  "version": "0.1.0",
+  "description": "detect whether one is similiar to another",
+  "main": "dest/core",
+  "scripts": {
+    "build": "ln -snf ../../cress-type node_modules && coffee -o dest -b src",
+    "test": "npm run build && mocha"
+  },
+  "author": "xinchaobeta",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "coffee-script": "^1.9.2",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
+  }
+}

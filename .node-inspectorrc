@@ -1,0 +1,6 @@
+{
+  "web-port": 8080,
+  "debug-port": 5858,
+  "preload": false,
+  "nodejs": ["--harmony"]
+}
