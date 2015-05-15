@@ -1,6 +1,6 @@
 # Cress Type
 
-This is an addon plugin for the [chai](http://github.com/logicalparadox/chai) assertion library and [should.js](https://github.com/tj/should.js) It provides the
+This is an addon plugin both for the [chai](http://github.com/logicalparadox/chai) assertion library and the [should.js](https://github.com/tj/should.js) assertion library. It provides the
 most basic function type compare ability and tests. 
 
 ## Installation
