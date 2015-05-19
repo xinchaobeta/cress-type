@@ -1,9 +1,14 @@
-isCompatible = require './core'
+compatible = require './core'
 
 module.exports = (chai, utils) ->
   chai.Assertion.addMethod 'compatible', (expects) ->
-    {isCompatible, path} = isCompatible @_obj, expects
-    msg = "expect #{JSON.stringify @_obj} to be type compatible with: #{JSON.stringify(expects)}"
-    msg +=  "\n\tbut fail at the key: #{path}" if path
-    chai.assert isCompatible is true, msg
+    {isCompatible, path} = compatible @_obj, expects
+    s1 = JSON.stringify @_obj
+    s2 = JSON.stringify(expects) 
+    detail =  "but fail at the key: #{path}" if path
+
+    msg1 = "expect #{s1} to be type compatible with: #{s2} \n\t#{detail}"
+    msg2 = "expect #{s1} to be type incompatible with: #{s2}"
+
+    @assert isCompatible is true, msg1, msg2
 

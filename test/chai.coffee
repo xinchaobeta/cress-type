@@ -8,6 +8,7 @@ describe 'compatible middleware for chai', ->
   target = a: 66, b: 'gaga'
 
   it """
-    use plugin to test base = #{JSON.stringify base}, target = #{JSON.stringify target}
+    use chai plugin to test base = #{JSON.stringify base}, target = #{JSON.stringify target}
   """, ->
     chai.expect(base).be.compatible target
+    chai.expect(target).be.not.compatible base

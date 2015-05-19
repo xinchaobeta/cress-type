@@ -1,6 +1,6 @@
 # Cress Type
 
-This is an addon plugin both for the [chai](http://github.com/logicalparadox/chai) assertion library and the [should.js](https://github.com/tj/should.js) assertion library. It provides the
+This is an addon plugin for the [Jest](https://github.com/facebook/jest), the [chai](http://github.com/logicalparadox/chai) assertion library and the [should.js](https://github.com/tj/should.js) assertion library. It provides the
 most basic function type compare ability and tests. 
 
 ## Installation
@@ -13,6 +13,30 @@ Cress Type are available on npm.
 
 
 ## Usage
+
+### Use As a Jest Plug In
+
+In order to load the plugin, add `Jest config option` to the `package.json` file:
+
+```json
+// package.json
+  ... 
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/node_modules/cress-type/dest/jest.js"
+  }
+```
+
+Then you can use it in Jest test files:
+
+```js
+// __tests__/example.js
+
+data1 = ['example', 1, {user: {name: 'cress', age: 99} }]
+data2 = ['another example', 2, {user: {name: 'haha', age: 0}}]
+
+expect(data1).toBeCompatible(data2)
+
+```
 
 ### Use As a Chai Plug In
 

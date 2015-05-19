@@ -8,6 +8,7 @@ describe 'compatible middleware for should', ->
   target = a: 6, b: 'haha'
 
   it """
-    use plugin to test base = #{JSON.stringify base}, target = #{JSON.stringify target}
+    use should.js plugin to test base = #{JSON.stringify base}, target = #{JSON.stringify target}
   """, ->
     base.should.be.compatible target
+    target.should.be.not.compatible base
