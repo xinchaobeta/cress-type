@@ -10,5 +10,5 @@ describe 'compatible middleware for chai', ->
   it """
     use chai plugin to test base = #{JSON.stringify base}, target = #{JSON.stringify target}
   """, ->
-    chai.expect(base).be.compatible target
-    chai.expect(target).be.not.compatible base
+    chai.expect(target).be.compatible base
+    chai.expect(base).be.not.compatible target

@@ -5,5 +5,5 @@ describe 'compatible middle for jest', ->
   it """
     use jest plugin to test base = #{JSON.stringify base}, target = #{JSON.stringify target}
   """, ->
-    expect(base).toBeCompatible target
-    expect(target).not.toBeCompatible base
+    expect(target).toBeCompatible base
+    expect(base).not.toBeCompatible target

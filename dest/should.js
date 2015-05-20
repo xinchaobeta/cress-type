@@ -6,7 +6,7 @@ compatible = require('./core');
 module.exports = function(Should, assertion) {
   return assertion.add('compatible', function(expects) {
     var isCompatible, msg, path, ref;
-    ref = compatible(this.obj, expects), isCompatible = ref.isCompatible, path = ref.path;
+    ref = compatible(expects, this.obj), isCompatible = ref.isCompatible, path = ref.path;
     msg = "to be type compatible with: " + (JSON.stringify(expects));
     if (path) {
       msg += "\n\tbut fail at the key: " + path;

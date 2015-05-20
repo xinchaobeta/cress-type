@@ -2,7 +2,7 @@ compatible = require './core'
 
 module.exports = (chai, utils) ->
   chai.Assertion.addMethod 'compatible', (expects) ->
-    {isCompatible, path} = compatible @_obj, expects
+    {isCompatible, path} = compatible expects, @_obj
     s1 = JSON.stringify @_obj
     s2 = JSON.stringify(expects) 
     detail =  "but fail at the key: #{path}" if path

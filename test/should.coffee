@@ -10,5 +10,5 @@ describe 'compatible middleware for should', ->
   it """
     use should.js plugin to test base = #{JSON.stringify base}, target = #{JSON.stringify target}
   """, ->
-    base.should.be.compatible target
-    target.should.be.not.compatible base
+    target.should.be.compatible base
+    base.should.be.not.compatible target

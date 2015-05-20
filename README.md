@@ -16,7 +16,7 @@ Cress Type are available on npm.
 
 ### Use As a Jest Plug In
 
-In order to load the plugin, add `Jest config option` to the `package.json` file:
+In order to load the plugin, add  `Jest config option`  to the  `package.json`  file:
 
 ```json
 // package.json

@@ -6,7 +6,7 @@ compatible = require('./core');
 module.exports = function(chai, utils) {
   return chai.Assertion.addMethod('compatible', function(expects) {
     var detail, isCompatible, msg1, msg2, path, ref, s1, s2;
-    ref = compatible(this._obj, expects), isCompatible = ref.isCompatible, path = ref.path;
+    ref = compatible(expects, this._obj), isCompatible = ref.isCompatible, path = ref.path;
     s1 = JSON.stringify(this._obj);
     s2 = JSON.stringify(expects);
     if (path) {

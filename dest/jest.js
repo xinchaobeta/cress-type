@@ -8,7 +8,7 @@ compatible = require('./core');
 jasmine.getEnv().beforeEach(function() {
   return this.addMatchers({
     toBeCompatible: function(expects) {
-      return (compatible(this.actual, expects)).isCompatible;
+      return (compatible(expects, this.actual)).isCompatible;
     }
   });
 });
