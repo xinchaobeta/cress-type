@@ -1,11 +1,11 @@
 {
   "name": "cress-type",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "detect whether one is similiar to another",
   "main": "dest/core",
   "scripts": {
     "build": "ln -snf ../../cress-type node_modules && coffee -o dest -b src",
-    "test": "npm run build && mocha && jest"
+    "test": "npm run build && mocha && jest && mocha ./test/ext-order"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,16 @@
     "chai": "^2.3.0",
     "coffee-script": "^1.9.2",
     "jest-cli": "^0.4.5",
+    "lodash": "^3.9.1",
     "mocha": "^2.2.4",
     "should": "^6.0.1"
   },
   "jest": {
     "scriptPreprocessor": "__tests__/.preprocessor",
-    "testFileExtensions": ["coffee", "js"],
+    "testFileExtensions": [
+      "coffee",
+      "js"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/node_modules/cress-type/dest/jest.js"
   }
 }
