@@ -1,0 +1,5 @@
+{
+  "ignore": [
+    "nodule_modules/!(test)"
+  ]
+}
