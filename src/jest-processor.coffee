@@ -1,21 +1,32 @@
 coffee = require 'coffee-script'
-resolveRc = require 'babel-core/lib/babel/tools/resolve-rc'
+Json = require 'json5'
+fs = require 'fs'
 babel = require 'babel-core'
-{sep} = require 'path'
+path = require 'path'
 
-babelJest =
-  opt: resolveRc(require.main?.filename or process.cwd())
+babelJest = new class
+  constructor: ->
+    @babelrc = do @resolveRc
+
+  resolveRc: ->
+    root = __dirname.split(/\bnode_modules\b/)[0...-1].join 'node_modules'
+    try
+      content = fs.readFileSync (path.join root, '.babelrc'), 'utf-8'
+      return Json.parse content
+    catch
+      return {}
+
   shouldIgnore: (filename) ->
-    ignore = babel.util.arrayify @opt.ignore, babel.util.regexify
-    only = babel.util.arrayify @opt.only, babel.util.regexify
+    ignore = babel.util.arrayify @babelrc.ignore, babel.util.regexify if @babelrc.ignore
+    only = babel.util.arrayify @babelrc.only, babel.util.regexify if @babelrc.only
 
     unless ignore or only
-      filename.split(sep).indexOf("node_modules") >= 0
+      filename.split(path.sep).indexOf("node_modules") >= 0
     else
-      babel.util.shouldIgnore(filename, ignore or [], only or [])
+      babel.util.shouldIgnore(filename, ignore or [], only)
 
   process: (src, filename) ->
-    stage = process.env.BABEL_JEST_STAGE or @opt.stage or 2
+    stage = process.env.BABEL_JEST_STAGE or @babelrc.stage or 2
 
     if not @shouldIgnore(filename) and babel.canCompile(filename)
       babel.transform(src, {filename, stage, retainLines: true}).code
