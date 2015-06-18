@@ -1,6 +1,6 @@
 {
   "name": "cress-type",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "detect whether one is similiar to another",
   "main": "dest/core",
   "scripts": {
